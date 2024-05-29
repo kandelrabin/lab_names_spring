@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController {
 
     @GetMapping
-    public String greet(@RequestParam(defaultValue = "") String name){
-        Greeting greeting = new Greeting(name, "afternoon");
+    public String greet(@RequestParam String name, @RequestParam String timeOfDay){
+        Greeting greeting = new Greeting(name, timeOfDay);
         return String.format("Good %s %s!",greeting.getTimeOfDay(), greeting.getName());
     }
 
